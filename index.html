@@ -7,7 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@600;700&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
- 
+
 /* ── THEMES ── */
 :root {
   --body-bg: #82E5E3;
@@ -52,7 +52,7 @@ body.theme-purple {
   --btn-highlight: #bb88ee;
   --acc: #8E52BF;
 }
- 
+
 html, body { height: 100%; overflow: hidden; }
 body {
   font-family: 'Nunito', sans-serif;
@@ -61,7 +61,7 @@ body {
   background: radial-gradient(ellipse at 40% 40%, var(--body-bg) 0%, var(--body-bg2) 100%);
   transition: background 0.4s ease;
 }
- 
+
 /* ── DEVICE SHELL ── */
 .device {
   position: relative;
@@ -78,10 +78,10 @@ body {
   transition: background 0.4s, box-shadow 0.4s;
 }
 @keyframes popIn { from { opacity:0; transform:scale(0.85) translateY(20px); } to { opacity:1; transform:none; } }
- 
+
 /* Screw dots — removed */
 .device::before, .device::after { display: none; }
- 
+
 /* ── SCREEN ── */
 .screen {
   width: 100%;
@@ -109,7 +109,7 @@ body {
 }
 /* Remove top glare */
 .screen::before { display: none; }
- 
+
 /* ── PIXEL DISPLAY ── */
 .mode-label {
   font-family: 'Press Start 2P', monospace;
@@ -119,7 +119,7 @@ body {
   text-transform: uppercase;
   position: relative; z-index: 1;
 }
- 
+
 .timer-display {
   font-family: 'Press Start 2P', monospace;
   font-size: 40px;
@@ -129,7 +129,7 @@ body {
   text-shadow: none;
   position: relative; z-index: 1;
 }
- 
+
 /* ── TABS (mode selector) ── */
 .modes {
   display: flex; gap: 2px;
@@ -153,20 +153,20 @@ body {
   box-shadow: 0 2px 8px rgba(0,0,0,0.25), 0 1px 0 rgba(255,255,255,0.1) inset;
 }
 .mode-btn:not(.active):hover { filter: brightness(1.1); }
- 
+
 /* ── CONTROLS ROW ── */
 .controls-row {
   display: flex; align-items: center; justify-content: space-between;
   width: 100%;
 }
- 
+
 .ctrl-btn {
   border: none; cursor: pointer;
   display: flex; align-items: center; justify-content: center;
   transition: all 0.12s;
 }
 .ctrl-btn:active { transform: translateY(2px); }
- 
+
 .btn-play {
   width: 68px; height: 44px; border-radius: 22px;
   background: var(--btn-shadow);
@@ -175,7 +175,7 @@ body {
 .btn-play:hover { filter: brightness(1.08); }
 .btn-play:active { box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
 .btn-play svg { width: 18px; height: 18px; fill: #ffffff; }
- 
+
 .btn-round {
   width: 40px; height: 40px; border-radius: 50%;
   background: var(--btn-face);
@@ -183,7 +183,7 @@ body {
 }
 .btn-round:hover { filter: brightness(1.1); }
 .btn-round:active { box-shadow: 0 2px 8px rgba(0,0,0,0.18); transform: translateY(2px); }
- 
+
 /* Settings icon — three lines */
 .btn-settings .icon-lines {
   display: flex; flex-direction: column; gap: 3px; align-items: center;
@@ -193,14 +193,14 @@ body {
   background: rgba(255,255,255,0.9); border-radius: 2px;
 }
 .btn-settings .icon-lines span:nth-child(2) { width: 10px; }
- 
+
 /* Avatar icon */
 .btn-avatar-pos svg { opacity: 0.9; }
 .avatar-img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; display: block; }
- 
+
 .avatar-emoji { font-size: 22px; line-height: 1; }
 .avatar-img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; display: block; }
- 
+
 /* ── SETTINGS OVERLAY — full device coverage ── */
 .settings-overlay {
   display: none;
@@ -215,7 +215,7 @@ body {
 .settings-overlay::-webkit-scrollbar { display: none; }
 .settings-overlay.show { display: flex; }
 @keyframes fadeIn { from{opacity:0;transform:scale(0.97)}to{opacity:1;transform:none} }
- 
+
 .settings-header {
   display: flex; align-items: center; justify-content: space-between;
   padding: 14px 16px 10px;
@@ -229,7 +229,7 @@ body {
   box-shadow: 0 3px 8px rgba(0,0,0,0.18);
 }
 .settings-close:active { transform: translateY(1px); }
- 
+
 .settings-body { padding: 12px 16px 16px; display: flex; flex-direction: column; gap: 12px; }
 .sgroup-label { font-family: 'Press Start 2P', monospace; font-size: 7px; color: var(--pixel-dim); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 6px; }
 .srow { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 8px; }
@@ -237,7 +237,11 @@ body {
 .srow input[type="number"] {
   width: 60px; padding: 6px 8px; text-align: center;
   border: 2px solid var(--pixel); border-radius: 6px;
-  font-family: 'Press Start 2P', monospace; font-size: 11px; color: var(--pixel);
+  font-family: 'Press Start 2P', monospace; font-size: 16px; color: var(--pixel);
+  -webkit-appearance: none; -moz-appearance: textfield; appearance: textfield;
+}
+.srow input[type="number"]::-webkit-inner-spin-button,
+.srow input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0;
   background: rgba(255,255,255,0.6); outline: none;
 }
 .srow input[type="number"]:focus { border-color: var(--acc); }
@@ -250,7 +254,7 @@ body {
 }
 .srow input[type="text"]:focus { border-color: var(--acc); }
 .settings-divider { height: 2px; background: var(--pixel-dim); border-radius: 2px; }
- 
+
 /* Theme picker */
 .theme-row { display: flex; gap: 10px; justify-content: center; }
 .theme-swatch {
@@ -263,7 +267,7 @@ body {
 .swatch-blue   { background: #82E5E3; }
 .swatch-green  { background: #C4E57B; }
 .swatch-purple { background: #DBB5F9; }
- 
+
 .save-btn {
   width: 100%; padding: 11px;
   background: var(--btn-face); color: #fff; border: none; border-radius: 8px;
@@ -273,7 +277,7 @@ body {
 }
 .save-btn:hover { filter: brightness(1.08); }
 .save-btn:active { transform: translateY(2px); box-shadow: 0 2px 6px rgba(0,0,0,0.15); }
- 
+
 /* ── DONE OVERLAY ── */
 .done-overlay {
   display: none; position: absolute; inset: 0; border-radius: 8px;
@@ -300,7 +304,7 @@ body {
 </style>
 </head>
 <body>
- 
+
 <div class="device">
   <!-- Mode tabs -->
   <div class="modes" id="modeTabs">
@@ -308,12 +312,12 @@ body {
     <button class="mode-btn" id="tabShort">short</button>
     <button class="mode-btn" id="tabLong">long</button>
   </div>
- 
+
   <!-- Screen -->
   <div class="screen">
     <div class="mode-label" id="modeLabel">focus time</div>
     <div class="timer-display" id="display">25:00</div>
- 
+
     <!-- Done overlay (stays inside screen) -->
     <div class="done-overlay" id="doneOverlay">
       <div class="done-emoji" id="doneEmoji">🎉</div>
@@ -322,7 +326,7 @@ body {
       <button class="done-btn" id="doneBtn">continue →</button>
     </div>
   </div>
- 
+
   <!-- Controls -->
   <div class="controls-row">
     <button class="ctrl-btn btn-round btn-avatar-pos" id="avatarBtn" style="overflow:hidden;padding:0;position:relative;width:40px;height:40px;flex-shrink:0;">
@@ -341,7 +345,7 @@ body {
       </div>
     </button>
   </div>
- 
+
   <!-- Settings overlay — covers full device including tabs -->
   <div class="settings-overlay" id="settingsOverlay">
     <div class="settings-header">
@@ -365,10 +369,11 @@ body {
         </div>
       </div>
       <button class="save-btn" id="saveBtn">save ✓</button>
+      <p style="font-family:'Press Start 2P',monospace;font-size:6px;color:#999;text-align:center;margin-top:10px;line-height:1.8;">designed &amp; developed<br>by manoj rai</p>
     </div>
   </div>
 </div>
- 
+
 <script>
 // ── TIMER ──
 const MODES = {
@@ -377,7 +382,7 @@ const MODES = {
   long:  { secs:15*60, label:'long break',   emoji:'🌿', doneTitle:'refreshed!',  doneSub:'Ready to focus again.' },
 };
 let mode='pomo', totalSecs=MODES.pomo.secs, remSecs=totalSecs, running=false, iv=null;
- 
+
 function setMode(m){
   mode=m;
   document.getElementById('tabPomo').classList.toggle('active',m==='pomo');
@@ -391,7 +396,7 @@ function updateDisplay(){
   document.title=fmt(remSecs)+' — focus';
 }
 let finished = false;
- 
+
 function togglePlay(){ 
   if(finished){ dismissDone(); return; }
   running?pause():play(); 
@@ -432,7 +437,7 @@ function dismissDone(){
   resetTimer();
 }
 function closeDone(){ dismissDone(); }
- 
+
 // ── ALARM ──
 let alarmAc=null, alarmLoop=null;
 function playAlarm(){
@@ -445,7 +450,7 @@ function playAlarm(){
   }catch(e){}
 }
 function stopAlarm(){ if(alarmLoop){clearInterval(alarmLoop);alarmLoop=null;} if(alarmAc){alarmAc.close();alarmAc=null;} }
- 
+
 // ── SETTINGS ──
 function openSettings(){
   document.getElementById('sPomo').value=Math.round(MODES.pomo.secs/60);
@@ -463,7 +468,7 @@ function saveSettings(){
   btn.textContent='saved! ✓';
   setTimeout(()=>btn.textContent='save ✓',1400);
 }
- 
+
 // ── THEME ──
 let currentTheme='blue';
 function applyTheme(t){
@@ -476,7 +481,7 @@ function applyTheme(t){
 document.getElementById('themeBlue').addEventListener('click',()=>applyTheme('blue'));
 document.getElementById('themeGreen').addEventListener('click',()=>applyTheme('green'));
 document.getElementById('themePurple').addEventListener('click',()=>applyTheme('purple'));
- 
+
 // ── AVATAR ──
 document.getElementById('avatarBtn').addEventListener('click',()=>document.getElementById('avatarUpload').click());
 document.getElementById('avatarUpload').addEventListener('change',(e)=>{
@@ -489,7 +494,7 @@ document.getElementById('avatarUpload').addEventListener('change',(e)=>{
   };
   reader.readAsDataURL(file);
 });
- 
+
 // ── WIRE ──
 document.getElementById('playBtn').addEventListener('click',togglePlay);
 document.getElementById('settingsBtn').addEventListener('click',openSettings);
@@ -499,7 +504,7 @@ document.getElementById('doneBtn').addEventListener('click',closeDone);
 document.getElementById('tabPomo').addEventListener('click',()=>setMode('pomo'));
 document.getElementById('tabShort').addEventListener('click',()=>setMode('short'));
 document.getElementById('tabLong').addEventListener('click',()=>setMode('long'));
- 
+
 updateDisplay();
 </script>
 </body>
